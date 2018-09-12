@@ -20,13 +20,13 @@ module.exports = (packageID, options) => {
     ps.addCommand(`(Get-AppxPackage -Name "${packageID}" | Get-AppxPackageManifest).package.applications.application.executable`);
 
     return ps.invoke()
-        .then(output => {
+        .then( output => {
             if (!output) {
                 throw 'Error: ENOENT, no such file or directory';
             }
-
             const appxPath = join(process.env.ProgramFiles, 'WindowsApps', output.trim());
+
             return appxPath;
         })
-        .finally(() => ps.dispose());
+        .finally( () => ps.dispose());
 };
