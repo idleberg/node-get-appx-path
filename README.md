@@ -19,8 +19,12 @@ Example usage in script:
 const getAppxPath = require('get-appx-path');
 
 (async () => {
-    let manifest = await getAppxPath('SpotifyAB.SpotifyMusic');
-    console.log(manifest);
+    try {
+        let appxPath = await getAppxPath('SpotifyAB.SpotifyMusic');
+        console.log(appxPath);
+    } catch (err) {
+        console.error(err);
+    }
 })();
 ```
 
