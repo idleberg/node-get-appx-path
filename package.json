@@ -1,0 +1,26 @@
+{
+  "name": "get-appx-path",
+  "version": "0.0.0",
+  "description": "Returns the path of a Windows Store app (Appx)",
+  "license": "MIT",
+  "scripts": {
+    "test": "eslint index.js"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/idleberg/node-get-appx-path.git"
+  },
+  "keywords": [
+    "appx",
+    "windows store",
+    "windows store app"
+  ],
+  "dependencies": {
+    "node-powershell": "^3.3.1",
+    "util": "^0.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0"
+  }
+}
