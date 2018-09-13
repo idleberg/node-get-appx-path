@@ -35,6 +35,32 @@ const appID = 'SpotifyAB.SpotifyMusic';
 })();
 ```
 
+### Options
+
+#### `options.inputEncoding`
+
+Default: `utf8`
+
+#### `options.outputEncoding`
+
+Default: `utf8`
+
+#### `options.debugMsg`
+
+Default: `false`
+
+#### `options.verbose`
+
+Default: `true`
+
+#### `options.executionPolicy`
+
+Default: `Bypass`
+
+#### `options.noProfile`
+
+Default: `true`
+
 ## License
 
 This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
