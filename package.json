@@ -14,7 +14,8 @@
   "keywords": [
     "appx",
     "windows store",
-    "windows store app"
+    "windows store app",
+    "microsoft store"
   ],
   "dependencies": {
     "node-powershell": "^3.3.1",

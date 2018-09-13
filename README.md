@@ -7,6 +7,10 @@
 
 Returns the path of a Windows Store app (Appx)
 
+## Prerequisites
+
+This library requires PowerShell and a Windows version with support for Windows Store apps
+
 ## Installation
 
 `yarn add get-appx-path || npm install get-appx-path`
