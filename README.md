@@ -17,7 +17,7 @@ This library requires PowerShell and a Windows version with support for Windows 
 
 ## Usage
 
-### `getAppxPath(appID: string, options: Object)`
+`getAppxPath(appID: string, options: Object)`
 
 Example usage in script:
 
