@@ -39,27 +39,27 @@ const appID = 'SpotifyAB.SpotifyMusic';
 
 ### Options
 
-`options.inputEncoding`
+#### options.inputEncoding
 
 Default: `utf8`
 
-`options.outputEncoding`
+#### options.outputEncoding
 
 Default: `utf8`
 
-`options.debugMsg`
+#### options.debugMsg
 
 Default: `false`
 
-`options.verbose`
+#### options.verbose
 
 Default: `true`
 
-`options.executionPolicy`
+#### options.executionPolicy
 
 Default: `Bypass`
 
-`options.noProfile`
+#### options.noProfile
 
 Default: `true`
 
