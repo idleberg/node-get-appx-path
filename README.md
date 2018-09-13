@@ -22,9 +22,12 @@ Example usage in script:
 ```js
 const getAppxPath = require('get-appx-path');
 
+// Application ID
+const appID = 'SpotifyAB.SpotifyMusic';
+
 (async () => {
     try {
-        let appxPath = await getAppxPath('SpotifyAB.SpotifyMusic');
+        let appxPath = await getAppxPath(appID);
         console.log(appxPath);
     } catch (err) {
         console.error(err);
