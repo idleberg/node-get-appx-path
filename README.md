@@ -29,8 +29,8 @@ const appID = 'SpotifyAB.SpotifyMusic';
 
 (async () => {
     try {
-        const appxPath = await getAppxPath(appID);
-        console.log(appxPath);
+        const appx = await getAppxPath(appID);
+        console.log(appx.path);
     } catch (err) {
         console.error(err);
     }
