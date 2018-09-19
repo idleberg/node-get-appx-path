@@ -4,7 +4,7 @@ const powershell = require('node-powershell');
 const { join } = require('path');
 const { platform } = require('os');
 
-module.exports = (packageID, options) => {
+module.exports = (appID, options) => {
     if (platform() !== 'win32') {
         throw 'Error: Not a Windows operating system';
     }
@@ -17,7 +17,7 @@ module.exports = (packageID, options) => {
 
     let ps = new powershell(options);
 
-    ps.addCommand(`(Get-AppxPackage -Name "${packageID}" | Get-AppxPackageManifest).package.applications.application.executable`);
+    ps.addCommand(`(Get-AppxPackage -Name "${appID}").InstallLocation`);
 
     return ps.invoke()
         .then( output => {
