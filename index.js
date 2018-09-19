@@ -1,7 +1,6 @@
 'use strict';
 
 const powershell = require('node-powershell');
-const { join } = require('path');
 const { platform } = require('os');
 
 module.exports = (appID, options) => {
