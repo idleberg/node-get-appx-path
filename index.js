@@ -18,8 +18,7 @@ module.exports = (appID, options) => {
 
     ps.addCommand(`$AppxPackage = (Get-AppxPackage -Name "${appID}")`);
     ps.addCommand('$Executable = ($AppxPackage | Get-AppxPackageManifest).Package.Applications.Application.Executable');
-    ps.addCommand('Write-Host "$($AppxPackage.InstallLocation)|$($Executable)" | ConvertFrom-String -Delimiter "|"');
-    // ps.addCommand('Write-Host \'{path: "$($AppxPackage.InstallLocation)", file: "$($Executable)"}\'');
+    ps.addCommand('"$($AppxPackage.InstallLocation) : $($Executable) : $($AppxPackage.InstallLocation)\\$($Executable)" | ConvertFrom-String -Delimiter " : " -PropertyNames dirname, filename, path | ConvertTo-Json');
 
     return ps.invoke()
         .then( appxPath => {
@@ -27,7 +26,7 @@ module.exports = (appID, options) => {
                 throw 'Error: ENOENT, no such file or directory';
             }
 
-            return appxPath;
+            return JSON.parse(appxPath);
         })
         .finally( () => ps.dispose());
 };
