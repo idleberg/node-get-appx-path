@@ -20,11 +20,10 @@ module.exports = (appID, options) => {
     ps.addCommand(`(Get-AppxPackage -Name "${appID}").InstallLocation`);
 
     return ps.invoke()
-        .then( output => {
-            if (!output) {
+        .then( appxPath => {
+            if (!appxPath) {
                 throw 'Error: ENOENT, no such file or directory';
             }
-            const appxPath = join(process.env.ProgramFiles, 'WindowsApps', output.trim());
 
             return appxPath;
         })
