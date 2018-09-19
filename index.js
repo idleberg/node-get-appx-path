@@ -23,12 +23,14 @@ module.exports = (appID, options) => {
     ps.addCommand('"$($dirname) : $($filename) : $path" | ConvertFrom-String -Delimiter " : " -PropertyNames dirname, filename, path | ConvertTo-Json');
 
     return ps.invoke()
-        .then( appxPath => {
-            if (!appxPath) {
+        .then( appxObject => JSON.parse(appxObject))
+        .catch( (err) => {
+            if (err.includes('Cannot bind argument to parameter \'Path\' because it is null')) {
                 throw 'Error: ENOENT, no such file or directory';
             }
 
-            return JSON.parse(appxPath);
+            // What else could go wrong?
+            throw err;
         })
         .finally( () => ps.dispose());
 };
