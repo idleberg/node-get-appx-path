@@ -16,7 +16,10 @@ module.exports = (appID, options) => {
 
     let ps = new powershell(options);
 
-    ps.addCommand(`(Get-AppxPackage -Name "${appID}").InstallLocation`);
+    ps.addCommand(`$AppxPackage = (Get-AppxPackage -Name "${appID}")`);
+    ps.addCommand('$Executable = ($AppxPackage | Get-AppxPackageManifest).Package.Applications.Application.Executable');
+    ps.addCommand('Write-Host "$($AppxPackage.InstallLocation)|$($Executable)" | ConvertFrom-String -Delimiter "|"');
+    // ps.addCommand('Write-Host \'{path: "$($AppxPackage.InstallLocation)", file: "$($Executable)"}\'');
 
     return ps.invoke()
         .then( appxPath => {
