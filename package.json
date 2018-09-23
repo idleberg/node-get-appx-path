@@ -1,7 +1,7 @@
 {
   "name": "get-appx-path",
   "version": "0.2.0",
-  "description": "Returns the path of a Windows Store app (Appx)",
+  "description": "Returns the path of a Windows Store application (Appx)",
   "license": "MIT",
   "scripts": {
     "test": "eslint index.js"

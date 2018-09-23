@@ -5,11 +5,11 @@
 [![CircleCI](https://flat.badgen.net/circleci/github/idleberg/node-get-appx-path)](https://circleci.com/gh/idleberg/node-get-appx-path)
 [![David](https://flat.badgen.net/david/dev/idleberg/node-get-appx-path)](https://david-dm.org/idleberg/node-get-appx-path?type=dev)
 
-Returns the path of a Windows Store app (Appx)
+Returns the path of a Windows Store application (Appx)
 
 ## Prerequisites
 
-This library requires PowerShell 5.0 (or higher) and a Windows version with support for Windows Store apps
+This library requires PowerShell 5.0 (or higher) and for the Windows Store
 
 ## Installation
 
@@ -65,7 +65,8 @@ Default: `true`
 
 ## Related
 
-- [exec-appx](https://github.com/idleberg/node-exec-appx)
+- [exec-appx](https://www.npmjs.com/package/exec-appx)
+- [get-appx-manifest](https://www.npmjs.com/package/get-appx-manifest)
 
 ## License
 
