@@ -9,7 +9,7 @@ Returns the path of a Windows Store app (Appx)
 
 ## Prerequisites
 
-This library requires PowerShell and a Windows version with support for Windows Store apps
+This library requires PowerShell 5.0 (or higher) and a Windows version with support for Windows Store apps
 
 ## Installation
 
