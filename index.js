@@ -5,7 +5,7 @@ const { platform } = require('os');
 
 module.exports = (appID, options) => {
     if (platform() !== 'win32') {
-        throw 'Error: This library requires PowerShell 5.0 (or higher) and for the Windows Store';
+        throw 'Error: This library requires PowerShell 5.0 (or higher) and for support the Windows Store';
     }
 
     options = Object.assign({
