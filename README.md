@@ -71,7 +71,3 @@ Default: `true`
 ## License
 
 This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
-
-## Donate
-
-You are welcome to support this project using [Flattr](https://flattr.com/submit/auto?user_id=idleberg&url=https://github.com/idleberg/node-get-appx-path) or Bitcoin `17CXJuPsmhuTzFV2k4RKYwpEHVjskJktRd`
