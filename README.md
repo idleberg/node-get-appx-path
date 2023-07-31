@@ -3,7 +3,6 @@
 [![npm](https://flat.badgen.net/npm/license/get-appx-path)](https://www.npmjs.org/package/get-appx-path)
 [![npm](https://flat.badgen.net/npm/v/get-appx-path)](https://www.npmjs.org/package/get-appx-path)
 [![CircleCI](https://flat.badgen.net/circleci/github/idleberg/node-get-appx-path)](https://circleci.com/gh/idleberg/node-get-appx-path)
-[![David](https://flat.badgen.net/david/dev/idleberg/node-get-appx-path)](https://david-dm.org/idleberg/node-get-appx-path?type=dev)
 
 Returns the path of a Windows Store application (Appx)
 
