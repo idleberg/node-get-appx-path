@@ -1,46 +1,55 @@
 {
-  "name": "get-appx-path",
-  "version": "0.2.4",
-  "description": "Returns the path of a Windows Store application (Appx)",
-  "license": "MIT",
-  "scripts": {
-    "fix": "eslint --fix ./src",
-    "lint:json": "jsonlint --quiet ./*.json",
-    "lint:js": "eslint ./src",
-    "lint": "npm-run-all --parallel lint:*",
-    "precommit": "npm run test",
-    "test": "eslint index.js"
-  },
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/idleberg/node-get-appx-path.git"
-  },
-  "keywords": [
-    "appx",
-    "windows store",
-    "windows store app",
-    "microsoft store",
-    "universal windows platform"
-  ],
-  "dependencies": {
-    "node-powershell": "^4.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.18.0",
-    "eslint-plugin-json": "^2.1.2",
-    "husky": "^4.3.8",
-    "jsonlint": "^1.6.3",
-    "lint-staged": "^10.5.3",
-    "npm-run-all": "^4.1.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.json": "jsonlint --quiet",
-    "*.js": "eslint --cache --fix"
-  }
+	"name": "get-appx-path",
+	"version": "0.2.4",
+	"description": "Returns the path of a Windows Store application (Appx)",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch",
+		"lint": "concurrently npm:lint:*",
+		"lint:biome": "biome check",
+		"lint:knip": "knip --production",
+		"lint:publint": "publint",
+		"prepack": "npm run build",
+		"prepare": "lefthook install",
+		"test": "vitest"
+	},
+	"files": [
+		"dist",
+		"LICENSE"
+	],
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/idleberg/node-get-appx-path.git"
+	},
+	"keywords": [
+		"appx",
+		"windows store",
+		"windows store app",
+		"microsoft store",
+		"universal windows platform"
+	],
+	"dependencies": {
+		"exec-powershell": "^1.0.1",
+		"node-powershell": "^4.0.0"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
+		"@idleberg/configs": "^0.3.1",
+		"@types/node": "^24.7.0",
+		"@types/node-powershell": "4",
+		"concurrently": "^9.2.1",
+		"klip": "^0.2.0",
+		"knip": "^5.64.2",
+		"publint": "^0.3.14",
+		"tsdown": "^0.15.6",
+		"vitest": "^3.2.4"
+	}
 }

@@ -9,6 +9,9 @@ yarn.lock
 # development
 .eslintcache
 
+# build
+dist/
+
 # project specific
 AppxManifest.*
 test.js
