@@ -4,11 +4,11 @@
 [![Version: npm](https://img.shields.io/npm/v/get-appx-path?style=for-the-badge)](https://www.npmjs.org/package/get-appx-path)
 ![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/node-get-appx-path/main?style=for-the-badge)
 
-Returns the path of a Windows Store application (Appx)
+Returns the path of a Windows Store application (Appx).
 
 ## Prerequisites
 
-This library requires PowerShell 5.0 (or higher) and support for the Windows Store
+This library requires PowerShell 5.0 (or higher) and support for the Windows Store.
 
 ## Installation
 
