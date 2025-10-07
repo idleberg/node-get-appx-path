@@ -1,8 +1,8 @@
 # get-appx-path
 
-[![npm](https://flat.badgen.net/npm/license/get-appx-path)](https://www.npmjs.org/package/get-appx-path)
-[![npm](https://flat.badgen.net/npm/v/get-appx-path)](https://www.npmjs.org/package/get-appx-path)
-[![CircleCI](https://flat.badgen.net/circleci/github/idleberg/node-get-appx-path)](https://circleci.com/gh/idleberg/node-get-appx-path)
+[![License](https://img.shields.io/github/license/idleberg/get-appx-path?color=blue&style=for-the-badge)](https://github.com/idleberg/get-appx-path/blob/main/LICENSE)
+[![Version: npm](https://img.shields.io/npm/v/@idleberg/get-appx-path?style=for-the-badge)](https://www.npmjs.org/package/@idleberg/get-appx-path)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/get-appx-path/main?style=for-the-badge)
 
 Returns the path of a Windows Store application (Appx)
 
@@ -12,7 +12,7 @@ This library requires PowerShell 5.0 (or higher) and support for the Windows Sto
 
 ## Installation
 
-`yarn add get-appx-path || npm install get-appx-path`
+`npm install get-appx-path`
 
 ## Usage
 
