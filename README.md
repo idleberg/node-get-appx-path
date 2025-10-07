@@ -1,8 +1,8 @@
 # get-appx-path
 
-[![License](https://img.shields.io/github/license/idleberg/get-appx-path?color=blue&style=for-the-badge)](https://github.com/idleberg/get-appx-path/blob/main/LICENSE)
-[![Version: npm](https://img.shields.io/npm/v/@idleberg/get-appx-path?style=for-the-badge)](https://www.npmjs.org/package/@idleberg/get-appx-path)
-![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/get-appx-path/main?style=for-the-badge)
+[![License](https://img.shields.io/github/license/idleberg/node-get-appx-path?color=blue&style=for-the-badge)](https://github.com/idleberg/node-get-appx-path/blob/main/LICENSE)
+[![Version: npm](https://img.shields.io/npm/v/node-get-appx-path?style=for-the-badge)](https://www.npmjs.org/package/node-get-appx-path)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/node-get-appx-path/main?style=for-the-badge)
 
 Returns the path of a Windows Store application (Appx)
 
