@@ -39,7 +39,6 @@
 		"universal windows platform"
 	],
 	"dependencies": {
-		"exec-powershell": "^1.0.1",
 		"node-powershell": "^4.0.0"
 	},
 	"devDependencies": {
