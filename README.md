@@ -29,27 +29,27 @@ console.log(appx.path);
 
 ### Options
 
-#### options.inputEncoding
+#### `options.inputEncoding`
 
-Default: `utf8`
+Default: `"utf8"`
 
-#### options.outputEncoding
+#### `options.outputEncoding`
 
-Default: `utf8`
+Default: `"utf8"`
 
-#### options.debugMsg
+#### `options.debugMsg`
 
 Default: `false`
 
-#### options.verbose
+#### `options.verbose`
 
 Default: `true`
 
-#### options.executionPolicy
+#### `options.executionPolicy`
 
-Default: `Bypass`
+Default: `"Bypass"`
 
-#### options.noProfile
+#### `options.noProfile`
 
 Default: `true`
 
@@ -60,4 +60,4 @@ Default: `true`
 
 ## License
 
-This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
+This work is licensed under [The MIT License](LICENSE).
