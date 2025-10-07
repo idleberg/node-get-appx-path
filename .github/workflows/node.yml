@@ -55,11 +55,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-      - name: Lint Source
-        run: pnpm run --if-present lint
-
       - name: Build Source
         run: pnpm run --if-present build
+
+      - name: Lint Source
+        run: pnpm run --if-present lint
 
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
