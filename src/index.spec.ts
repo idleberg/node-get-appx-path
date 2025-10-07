@@ -30,6 +30,7 @@ describe('getAppxPath', () => {
 					invoke: mockInvoke,
 					dispose: mockDispose,
 					addCommand: mockAddCommand,
+					// biome-ignore lint/suspicious/noExplicitAny: let's be lax about rules
 				}) as any,
 		);
 
@@ -54,6 +55,7 @@ describe('getAppxPath', () => {
 					invoke: mockInvoke,
 					dispose: mockDispose,
 					addCommand: mockAddCommand,
+					// biome-ignore lint/suspicious/noExplicitAny: let's be lax about rules
 				}) as any,
 		);
 
@@ -73,6 +75,7 @@ describe('getAppxPath', () => {
 					invoke: mockInvoke,
 					dispose: mockDispose,
 					addCommand: mockAddCommand,
+					// biome-ignore lint/suspicious/noExplicitAny: let's be lax about rules
 				}) as any,
 		);
 
@@ -92,6 +95,7 @@ describe('getAppxPath', () => {
 					invoke: mockInvoke,
 					dispose: mockDispose,
 					addCommand: mockAddCommand,
+					// biome-ignore lint/suspicious/noExplicitAny: let's be lax about rules
 				}) as any,
 		);
 
@@ -114,6 +118,7 @@ describe('getAppxPath', () => {
 				invoke: mockInvoke,
 				dispose: mockDispose,
 				addCommand: mockAddCommand,
+				// biome-ignore lint/suspicious/noExplicitAny: let's be lax about rules
 			} as any;
 		});
 
