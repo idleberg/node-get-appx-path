@@ -21,19 +21,10 @@ This library requires PowerShell 5.0 (or higher) and support for the Windows Sto
 Example usage in script:
 
 ```js
-const getAppxPath = require('get-appx-path');
+import { getAppxPath } from 'get-appx-path';
 
-// Application ID
-const appID = 'SpotifyAB.SpotifyMusic';
-
-(async () => {
-    try {
-        const appx = await getAppxPath(appID);
-        console.log(appx.path);
-    } catch (err) {
-        console.error(err);
-    }
-})();
+const appx = await getAppxPath('SpotifyAB.SpotifyMusic');
+console.log(appx.path);
 ```
 
 ### Options
