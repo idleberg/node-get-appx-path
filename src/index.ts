@@ -29,6 +29,7 @@ export async function getAppxPath(appID: string, userOptions: Powershell.ShellOp
 
 	try {
 		const appxObject: string = await ps.invoke();
+
 		return JSON.parse(appxObject);
 	} catch (error) {
 		if (
