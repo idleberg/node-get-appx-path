@@ -38,7 +38,7 @@ export async function getAppxPath(appID: string, userOptions: Powershell.ShellOp
 			throw new Error('ENOENT, no such file or directory');
 		}
 
-		// What else could go wrong?
+		// All other errors
 		throw error;
 	} finally {
 		ps.dispose();
