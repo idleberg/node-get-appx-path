@@ -12,7 +12,9 @@ This library requires PowerShell 5.0 (or higher) and support for the Windows Sto
 
 ## Installation
 
-`npm install get-appx-path`
+```sh
+npm install get-appx-path
+```
 
 ## Usage
 
