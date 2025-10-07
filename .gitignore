@@ -12,6 +12,10 @@ yarn.lock
 # build
 dist/
 
+# testing
+coverage/
+__screenshots__/
+
 # project specific
 AppxManifest.*
 test.js
