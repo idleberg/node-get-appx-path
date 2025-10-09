@@ -1,6 +1,6 @@
 {
 	"name": "get-appx-path",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"description": "Returns the path of a Windows Store application (Appx)",
 	"license": "MIT",
 	"scripts": {
