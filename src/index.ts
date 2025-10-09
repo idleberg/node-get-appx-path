@@ -44,7 +44,7 @@ const errorMappings = [
 		message: 'ENOENT, no such file or directory',
 	},
 	{
-		match: "Join-Path : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'ChildPath",
+		match: "Join-Path : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'ChildPath'",
 		message: 'The application consists of multiple executables',
 	},
 ];

@@ -63,6 +63,33 @@ describe('getAppxPath', () => {
 		expect(mockDispose).toHaveBeenCalledOnce();
 	});
 
+	it('should throw error when path parameter is of type array', async () => {
+		const mockInvoke = vi
+			.fn()
+			.mockRejectedValue(
+				new Error(
+					"Join-Path : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'ChildPath'",
+				),
+			);
+		const mockDispose = vi.fn();
+		const mockAddCommand = vi.fn();
+
+		vi.mocked(Powershell).mockImplementation(
+			() =>
+				({
+					invoke: mockInvoke,
+					dispose: mockDispose,
+					addCommand: mockAddCommand,
+					// biome-ignore lint/suspicious/noExplicitAny: let's be lax about rules
+				}) as any,
+		);
+
+		await expect(getAppxPath('MultiExecutableApp', {})).rejects.toThrow(
+			'The application consists of multiple executables',
+		);
+		expect(mockDispose).toHaveBeenCalledOnce();
+	});
+
 	it('should rethrow other errors', async () => {
 		const mockError = new Error('Some other PowerShell error');
 		const mockInvoke = vi.fn().mockRejectedValue(mockError);
