@@ -4,7 +4,7 @@
 [![Version: npm](https://img.shields.io/npm/v/get-appx-path?style=for-the-badge)](https://www.npmjs.org/package/get-appx-path)
 ![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/node-get-appx-path/main?style=for-the-badge)
 
-Returns the path of a Windows Store application (Appx).
+Returns the path(s) of a Windows Store application (Appx).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Example usage in script:
 import { getAppxPath } from 'get-appx-path';
 
 const appx = await getAppxPath('Mozilla.Firefox');
-console.log(appx.path);
+console.log(appx.paths);
 ```
 
 ### Options

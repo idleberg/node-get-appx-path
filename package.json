@@ -1,7 +1,7 @@
 {
 	"name": "get-appx-path",
 	"version": "0.3.0",
-	"description": "Returns the path of a Windows Store application (Appx)",
+	"description": "Returns the path(s) of a Windows Store application (Appx)",
 	"license": "MIT",
 	"scripts": {
 		"build": "tsdown",
@@ -13,7 +13,7 @@
 		"prepack": "npm run build",
 		"prepare": "lefthook install",
 		"publish:npm": "np --any-branch",
-		"test": "vitest"
+		"test": "vitest run"
 	},
 	"files": [
 		"dist",
