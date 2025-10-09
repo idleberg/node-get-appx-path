@@ -28,20 +28,37 @@ export async function getAppxPath(appID: string, userOptions?: Powershell.ShellO
 	}
 
 	try {
-		const appxObject: string = await ps.invoke();
+		const appxString: string = await ps.invoke();
 
-		return JSON.parse(appxObject);
+		return JSON.parse(appxString);
 	} catch (error) {
-		if (
-			error instanceof Error &&
-			error.message.includes("Cannot bind argument to parameter 'Path' because it is null")
-		) {
-			throw new Error('ENOENT, no such file or directory');
-		}
-
-		// All other errors
-		throw error;
+		handleErrors(error);
 	} finally {
 		ps.dispose();
 	}
+}
+
+const errorMappings = [
+	{
+		match: "Cannot bind argument to parameter 'Path' because it is null",
+		message: 'ENOENT, no such file or directory',
+	},
+	{
+		match: "Join-Path : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'ChildPath",
+		message: 'The application consists of multiple executables',
+	},
+];
+
+function handleErrors(error: unknown): never {
+	if (!(error instanceof Error)) {
+		throw error;
+	}
+
+	const mapping = errorMappings.find((m) => error.message.includes(m.match));
+
+	if (mapping) {
+		throw new Error(mapping.message);
+	}
+
+	throw error;
 }
