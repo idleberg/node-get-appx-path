@@ -18,7 +18,7 @@ npm install get-appx-path
 
 ## Usage
 
-`getAppxPath(appID: string, options: Object)`
+`getAppxPath(appID, options)`
 
 Example usage in script:
 
