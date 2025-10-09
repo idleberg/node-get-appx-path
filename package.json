@@ -12,6 +12,7 @@
 		"lint:publint": "publint",
 		"prepack": "npm run build",
 		"prepare": "lefthook install",
+		"publish:npm": "np --any-branch",
 		"test": "vitest"
 	},
 	"files": [
