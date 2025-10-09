@@ -25,7 +25,7 @@ Example usage in script:
 ```js
 import { getAppxPath } from 'get-appx-path';
 
-const appx = await getAppxPath('OpenAI.ChatGPT-Desktop');
+const appx = await getAppxPath('Mozilla.Firefox');
 console.log(appx.path);
 ```
 
