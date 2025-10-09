@@ -18,9 +18,9 @@ async function getAppxPath(appID: string, userOptions?: Powershell.ShellOptions)
 	const commands = [
 		`$AppxPackage = (Get-AppxPackage -Name "${appID}")`,
 		'$dirname = $AppxPackage.InstallLocation',
-		'$filename = ($AppxPackage | Get-AppxPackageManifest).Package.Applications.Application.Executable',
-		'$path = (Join-Path -Path $dirname -ChildPath $filename)',
-		'"$($dirname) : $($filename) : $path" | ConvertFrom-String -Delimiter " : " -PropertyNames dirname, filename, path | ConvertTo-Json',
+		'$filenames = @(($AppxPackage | Get-AppxPackageManifest).Package.Applications.Application.Executable)',
+		'$paths = $filenames | ForEach-Object { Join-Path -Path $dirname -ChildPath $_ }',
+		'@{ dirname = $dirname; filenames = $filenames; paths = $paths } | ConvertTo-Json',
 	];
 
 	for (const command of commands) {
@@ -42,10 +42,6 @@ const errorMappings = [
 	{
 		match: "Cannot bind argument to parameter 'Path' because it is null",
 		message: 'ENOENT, no such file or directory',
-	},
-	{
-		match: "Join-Path : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'ChildPath'",
-		message: 'The application consists of multiple executables',
 	},
 ];
 

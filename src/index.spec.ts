@@ -16,8 +16,8 @@ describe('getAppxPath', () => {
 	it('should return parsed appx path object on success', async () => {
 		const mockResult = {
 			dirname: 'C:\\Program Files\\WindowsApps\\App',
-			filename: 'app.exe',
-			path: 'C:\\Program Files\\WindowsApps\\App\\app.exe',
+			filenames: ['app.exe'],
+			paths: ['C:\\Program Files\\WindowsApps\\App\\app.exe'],
 		};
 
 		const mockInvoke = vi.fn().mockResolvedValue(JSON.stringify(mockResult));
@@ -63,14 +63,18 @@ describe('getAppxPath', () => {
 		expect(mockDispose).toHaveBeenCalledOnce();
 	});
 
-	it('should throw error when path parameter is of type array', async () => {
-		const mockInvoke = vi
-			.fn()
-			.mockRejectedValue(
-				new Error(
-					"Join-Path : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'ChildPath'",
-				),
-			);
+	it('should handle multiple executables', async () => {
+		const mockResult = {
+			dirname: 'C:\\Program Files\\WindowsApps\\App',
+			filenames: ['app.exe', 'helper.exe', 'background.exe'],
+			paths: [
+				'C:\\Program Files\\WindowsApps\\App\\app.exe',
+				'C:\\Program Files\\WindowsApps\\App\\helper.exe',
+				'C:\\Program Files\\WindowsApps\\App\\background.exe',
+			],
+		};
+
+		const mockInvoke = vi.fn().mockResolvedValue(JSON.stringify(mockResult));
 		const mockDispose = vi.fn();
 		const mockAddCommand = vi.fn();
 
@@ -84,9 +88,9 @@ describe('getAppxPath', () => {
 				}) as any,
 		);
 
-		await expect(getAppxPath('MultiExecutableApp', {})).rejects.toThrow(
-			'The application consists of multiple executables',
-		);
+		const result = await getAppxPath('MultiExecutableApp', {});
+
+		expect(result).toEqual(mockResult);
 		expect(mockDispose).toHaveBeenCalledOnce();
 	});
 
@@ -111,7 +115,7 @@ describe('getAppxPath', () => {
 	});
 
 	it('should dispose powershell instance even on success', async () => {
-		const mockResult = { dirname: 'test', filename: 'test.exe', path: 'test/test.exe' };
+		const mockResult = { dirname: 'test', filenames: ['test.exe'], paths: ['test/test.exe'] };
 		const mockInvoke = vi.fn().mockResolvedValue(JSON.stringify(mockResult));
 		const mockDispose = vi.fn();
 		const mockAddCommand = vi.fn();
@@ -132,7 +136,7 @@ describe('getAppxPath', () => {
 	});
 
 	it('should pass user options to Powershell', async () => {
-		const mockResult = { dirname: 'test', filename: 'test.exe', path: 'test/test.exe' };
+		const mockResult = { dirname: 'test', filenames: ['test.exe'], paths: ['test/test.exe'] };
 		const mockInvoke = vi.fn().mockResolvedValue(JSON.stringify(mockResult));
 		const mockDispose = vi.fn();
 		const mockAddCommand = vi.fn();
