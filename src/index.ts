@@ -1,7 +1,13 @@
 import { platform } from 'node:os';
 import Powershell from 'node-powershell';
 
-async function getAppxPath(appID: string, userOptions?: Powershell.ShellOptions) {
+type AppxPathObject = {
+	dirname: string;
+	filename: string;
+	path: string;
+};
+
+async function getAppxPath(appID: string, userOptions?: Powershell.ShellOptions): Promise<AppxPathObject> {
 	if (platform() !== 'win32') {
 		throw 'Error: This library requires PowerShell 5.0 (or higher) and support for the Windows Store';
 	}
