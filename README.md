@@ -22,7 +22,7 @@ npm install get-appx-path
 
 Example usage in script:
 
-```js
+```typescript
 import { getAppxPath } from 'get-appx-path';
 
 const appx = await getAppxPath('Mozilla.Firefox');
