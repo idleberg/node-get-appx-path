@@ -64,6 +64,3 @@ function handleErrors(error: unknown): never {
 }
 
 export { getAppxPath };
-
-// Backwards compatibility, but deprecated
-export default getAppxPath;
