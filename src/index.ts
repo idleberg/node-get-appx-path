@@ -23,10 +23,10 @@ async function getAppxPath(appID: string, userOptions?: Powershell.ShellOptions)
 
 	const commands = [
 		`$AppxPackage = (Get-AppxPackage -Name "${appID}")`,
-		'$dirname = @($AppxPackage.InstallLocation)',
+		'$dirnames = @($AppxPackage.InstallLocation)',
 		'$filenames = @(($AppxPackage | Get-AppxPackageManifest).Package.Applications.Application.Executable)',
-		'$paths = @($filenames | ForEach-Object { Join-Path -Path $dirname -ChildPath $_ })',
-		'@{ dirname = $dirname; filenames = $filenames; paths = $paths } | ConvertTo-Json',
+		'$paths = @($filenames | ForEach-Object { Join-Path -Path $dirnames -ChildPath $_ })',
+		'@{ dirnames = $dirnames; filenames = $filenames; paths = $paths } | ConvertTo-Json',
 	];
 
 	for (const command of commands) {
