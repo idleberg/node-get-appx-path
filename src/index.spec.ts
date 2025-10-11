@@ -15,7 +15,7 @@ describe('getAppxPath', () => {
 
 	it('should return parsed appx path object on success', async () => {
 		const mockResult = {
-			dirname: 'C:\\Program Files\\WindowsApps\\App',
+			dirname: ['C:\\Program Files\\WindowsApps\\App'],
 			filenames: ['app.exe'],
 			paths: ['C:\\Program Files\\WindowsApps\\App\\app.exe'],
 		};
@@ -38,6 +38,10 @@ describe('getAppxPath', () => {
 
 		expect(result).toEqual(mockResult);
 		expect(mockAddCommand).toHaveBeenCalledTimes(5);
+		expect(mockAddCommand).toHaveBeenNthCalledWith(
+			4,
+			'$paths = @($filenames | ForEach-Object { Join-Path -Path $dirname -ChildPath $_ })',
+		);
 		expect(mockInvoke).toHaveBeenCalledOnce();
 		expect(mockDispose).toHaveBeenCalledOnce();
 	});
@@ -65,7 +69,7 @@ describe('getAppxPath', () => {
 
 	it('should handle multiple executables', async () => {
 		const mockResult = {
-			dirname: 'C:\\Program Files\\WindowsApps\\App',
+			dirname: ['C:\\Program Files\\WindowsApps\\App'],
 			filenames: ['app.exe', 'helper.exe', 'background.exe'],
 			paths: [
 				'C:\\Program Files\\WindowsApps\\App\\app.exe',
@@ -115,7 +119,7 @@ describe('getAppxPath', () => {
 	});
 
 	it('should dispose powershell instance even on success', async () => {
-		const mockResult = { dirname: 'test', filenames: ['test.exe'], paths: ['test/test.exe'] };
+		const mockResult = { dirname: ['test'], filenames: ['test.exe'], paths: ['test/test.exe'] };
 		const mockInvoke = vi.fn().mockResolvedValue(JSON.stringify(mockResult));
 		const mockDispose = vi.fn();
 		const mockAddCommand = vi.fn();
@@ -136,7 +140,7 @@ describe('getAppxPath', () => {
 	});
 
 	it('should pass user options to Powershell', async () => {
-		const mockResult = { dirname: 'test', filenames: ['test.exe'], paths: ['test/test.exe'] };
+		const mockResult = { dirname: ['test'], filenames: ['test.exe'], paths: ['test/test.exe'] };
 		const mockInvoke = vi.fn().mockResolvedValue(JSON.stringify(mockResult));
 		const mockDispose = vi.fn();
 		const mockAddCommand = vi.fn();

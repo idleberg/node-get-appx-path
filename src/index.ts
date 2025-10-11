@@ -2,7 +2,7 @@ import { platform } from 'node:os';
 import Powershell from 'node-powershell';
 
 type AppxPathObject = {
-	dirname: string;
+	dirname: string[];
 	filenames: string[];
 	paths: string[];
 };
@@ -23,9 +23,9 @@ async function getAppxPath(appID: string, userOptions?: Powershell.ShellOptions)
 
 	const commands = [
 		`$AppxPackage = (Get-AppxPackage -Name "${appID}")`,
-		'$dirname = $AppxPackage.InstallLocation',
+		'$dirname = @($AppxPackage.InstallLocation)',
 		'$filenames = @(($AppxPackage | Get-AppxPackageManifest).Package.Applications.Application.Executable)',
-		'$paths = $filenames | ForEach-Object { Join-Path -Path $dirname -ChildPath $_ }',
+		'$paths = @($filenames | ForEach-Object { Join-Path -Path $dirname -ChildPath $_ })',
 		'@{ dirname = $dirname; filenames = $filenames; paths = $paths } | ConvertTo-Json',
 	];
 
