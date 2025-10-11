@@ -7,6 +7,12 @@ type AppxPathObject = {
 	paths: string[];
 };
 
+/**
+ * Get an object containing the installation path and executable filenames of a given AppX package.
+ * @param appID the id of the AppX package, e.g.`"Mozilla.Firefox"`
+ * @param userOptions options passed to node-powershell
+ * @returns an object of paths and filenames
+ */
 async function getAppxPath(appID: string, userOptions?: Powershell.ShellOptions): Promise<AppxPathObject> {
 	if (platform() !== 'win32') {
 		throw 'Error: This library requires PowerShell 5.0 (or higher) and support for the Windows Store';
