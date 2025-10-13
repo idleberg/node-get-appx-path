@@ -8,8 +8,8 @@ type AppxPathObject = {
 };
 
 /**
- * Get an object containing the installation path and executable filenames of a given AppX package.
- * @param appID the id of the AppX package, e.g.`"Mozilla.Firefox"`
+ * Get an object containing the installation path and executable filenames of a given Appx package.
+ * @param appID the id of the Appx package, e.g.`"Mozilla.Firefox"`
  * @param userOptions options passed to node-powershell
  * @returns an object of paths and filenames
  */
