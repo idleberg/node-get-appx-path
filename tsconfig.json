@@ -1,6 +1,7 @@
 {
 	"extends": "@idleberg/configs/tsc",
 	"compilerOptions": {
+		"esModuleInterop": true,
 		"lib": ["ESNext"]
 	}
 }
