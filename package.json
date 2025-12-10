@@ -9,7 +9,6 @@
 		"lint": "concurrently npm:lint:*",
 		"lint:biome": "biome check",
 		"lint:e18e": "e18e-cli analyze",
-		"lint:publint": "publint",
 		"prepack": "npm run build",
 		"prepare": "lefthook install",
 		"publish:npm": "np --any-branch",
